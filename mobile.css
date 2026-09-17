@@ -1,0 +1,58 @@
+/* Mobile responsive overrides */
+@media (max-width: 640px) {
+  body { overflow-x: hidden; }
+  header .max-w-7xl { padding-left: .75rem !important; padding-right: .75rem !important; }
+  header h1 { font-size: .9rem !important; line-height: 1.35 !important; }
+  header h1 span { font-size: 8px !important; padding: .15rem .4rem !important; }
+  header p { font-size: 10px !important; line-height: 1.35 !important; }
+  header nav { width: 100% !important; max-width: 100% !important; overflow-x: auto !important; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  header nav::-webkit-scrollbar { display: none; }
+  .nav-btn { font-size: .68rem !important; padding: .45rem .65rem !important; flex-shrink: 0; }
+  main { padding-left: .75rem !important; padding-right: .75rem !important; padding-top: 1rem !important; padding-bottom: 1.5rem !important; }
+  main > section { scroll-margin-top: 7.5rem; }
+  main > section:first-child { padding: 1.15rem !important; border-radius: 1.5rem !important; }
+  main > section:first-child .relative.z-10 { gap: 1.25rem; }
+  main > section:first-child h2 { font-size: 1.75rem !important; line-height: 1.25 !important; }
+  main > section:first-child p { font-size: .78rem !important; line-height: 1.7 !important; }
+  .badge { font-size: .65rem !important; padding: .32rem .6rem !important; }
+  .metric { padding: .7rem .45rem !important; border-radius: .8rem !important; }
+  .metric div, .metric small { font-size: .58rem !important; line-height: 1.35 !important; }
+  .metric strong { font-size: 1.35rem !important; margin: .15rem 0; }
+  .section-title { gap: .55rem; padding-left: .65rem; border-left-width: 3px; }
+  .section-title h2 { font-size: 1.05rem !important; line-height: 1.35 !important; }
+  .section-title p { font-size: .67rem !important; line-height: 1.5 !important; margin-top: .2rem; }
+  .glass-card { padding: 1rem !important; border-radius: 1rem !important; }
+  .glass-card h3 { font-size: 1rem !important; line-height: 1.4 !important; }
+  .glass-card > p, .mini-card p { font-size: .73rem !important; line-height: 1.7 !important; }
+  .formula, .callout { font-size: .68rem !important; line-height: 1.55 !important; padding: .65rem !important; overflow-wrap: anywhere; }
+  .graph-box { padding: .35rem !important; border-radius: .75rem !important; width: 100%; min-width: 0; overflow: hidden; }
+  .graph-box svg { width: 100% !important; height: auto !important; min-width: 0; }
+  .graph-box text { font-size: 10px !important; }
+  .info { padding: .75rem !important; }
+  .info h4 { font-size: .78rem !important; }
+  .info p { font-size: .68rem !important; line-height: 1.55 !important; }
+  .mini-card { padding: .8rem !important; font-size: .68rem !important; }
+  .subrow { font-size: .66rem !important; line-height: 1.5 !important; padding: .5rem !important; overflow-wrap: anywhere; }
+  #shift-tabs { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: .4rem !important; }
+  .tab-btn { width: 100%; min-width: 0; font-size: .65rem !important; padding: .55rem .3rem !important; white-space: nowrap; }
+  #shift-desc { min-height: 0 !important; }
+  .shift-title { font-size: 1.15rem !important; }
+  .shift-row { font-size: .68rem !important; padding: .55rem !important; gap: .5rem; flex-wrap: wrap; }
+  .list { font-size: .68rem !important; line-height: 1.55 !important; padding-left: 1rem; }
+  .quiz { padding: .9rem !important; border-radius: .85rem !important; }
+  .quiz > p:first-child { font-size: .73rem !important; }
+  .quiz button { font-size: .68rem !important; padding: .65rem !important; line-height: 1.45 !important; }
+  .quiz-feedback { font-size: .68rem !important; }
+  .overflow-x-auto { max-width: 100%; overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+  table { font-size: .66rem !important; min-width: 620px; }
+  th, td { padding: .65rem .55rem !important; white-space: normal; }
+  footer { padding: 1.5rem .75rem !important; font-size: .62rem !important; line-height: 1.5 !important; }
+}
+@media (max-width: 380px) {
+  main > section:first-child h2 { font-size: 1.55rem !important; }
+  main > section:first-child p { font-size: .72rem !important; }
+  .metric strong { font-size: 1.2rem !important; }
+  .section-title h2 { font-size: .98rem !important; }
+  .tab-btn { font-size: .6rem !important; }
+  .graph-box text { font-size: 9px !important; }
+}
