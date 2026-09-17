@@ -1,36 +1,7 @@
+(function(){const link=document.createElement('link');link.rel='stylesheet';link.href='mobile.css';document.head.appendChild(link);})();
+
 function scrollToSection(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
-
-const shiftData={
- 'demand-up':{line:[130,60,370,220],point:[225,115],label:[235,110],title:'수요 증가 →',headline:'가격 상승 & 거래량 증가',price:'상승',quantity:'증가',color:'rose',reason:'소비자의 소득 증가, 대체재 가격 상승, 선호도 증가 등'},
- 'demand-down':{line:[30,60,270,220],point:[175,165],label:[100,180],title:'수요 감소 ←',headline:'가격 하락 & 거래량 감소',price:'하락',quantity:'감소',color:'slate',reason:'소득 감소, 대체재 가격 하락, 소비 인구 감소 등'},
- 'supply-up':{line:[130,220,370,60],point:[225,165],label:[235,175],title:'공급 증가 →',headline:'가격 하락 & 거래량 증가',price:'하락',quantity:'증가',color:'green',reason:'생산 기술 발전, 원자재 가격 하락, 임금 하락 등'},
- 'supply-down':{line:[30,220,270,60],point:[175,115],label:[100,110],title:'공급 감소 ←',headline:'가격 상승 & 거래량 감소',price:'상승',quantity:'감소',color:'slate',reason:'원자재 가격 상승, 정부 규제 강화, 세금 인상 등'}
-};
-
-function updateShiftGraph(type,btn){
- const d=shiftData[type], line=document.getElementById('shifted-line'), point=document.getElementById('new-e'), label=document.getElementById('shift-label');
- document.querySelectorAll('#shift-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
- if(btn)btn.classList.add('active');
- [line,point,label].forEach(el=>el.classList.remove('graph-pulse'));
- line.setAttribute('x1',d.line[0]);line.setAttribute('y1',d.line[1]);line.setAttribute('x2',d.line[2]);line.setAttribute('y2',d.line[3]);
- line.setAttribute('stroke',d.color==='green'?'#10b981':'#f43f5e');
- point.setAttribute('cx',d.point[0]);point.setAttribute('cy',d.point[1]);
- label.setAttribute('x',d.label[0]);label.setAttribute('y',d.label[1]);
- label.setAttribute('fill',d.color==='green'?'#34d399':d.color==='rose'?'#fb7185':'#94a3b8');
- void line.offsetWidth;line.classList.add('graph-pulse');point.classList.add('graph-pulse');
- const accent=d.color==='green'?'#34d399':d.color==='rose'?'#fb7185':'#94a3b8';
- document.getElementById('shift-desc').innerHTML=`<div class="shift-card" style="background:rgba(59,130,246,.12);color:${accent};border:1px solid rgba(96,165,250,.2)">${d.title}</div><div class="shift-title">${d.headline}</div><div class="shift-row"><span>균형 가격 (P*)</span><strong style="color:${accent}">${d.price} ↑</strong></div><div class="shift-row"><span>균형 거래량 (Q*)</span><strong style="color:${accent}">${d.quantity}</strong></div><p class="text-xs text-slate-400" style="margin-top:.8rem"><b>주요 원인:</b> ${d.reason}</p>`;
- if(window.MathJax)window.MathJax.typesetPromise?.([document.getElementById('shift-desc')]);
-}
-
-function checkQuiz(button,isCorrect){
- const quiz=button.closest('.quiz');
- quiz.querySelectorAll('button').forEach(b=>{b.disabled=true;b.classList.remove('correct','wrong');});
- const feedback=quiz.querySelector('.quiz-feedback');
- if(isCorrect){button.classList.add('correct');feedback.textContent='✓ 정답입니다! 핵심 개념을 정확히 이해했습니다.';feedback.style.color='#34d399';}
- else{button.classList.add('wrong');feedback.textContent='✗ 오답입니다. 가격 변화는 곡선 위의 이동, 가격 외 요인은 곡선 자체의 이동입니다.';feedback.style.color='#fb7185';}
-}
-
-document.addEventListener('DOMContentLoaded',()=>{
- updateShiftGraph('demand-up',document.querySelector('#shift-tabs .tab-btn'));
-});
+const shiftData={'demand-up':{line:[130,60,370,220],point:[225,115],label:[235,110],title:'수요 증가 →',headline:'가격 상승 & 거래량 증가',price:'상승',quantity:'증가',color:'rose',reason:'소비자의 소득 증가, 대체재 가격 상승, 선호도 증가 등'},'demand-down':{line:[30,60,270,220],point:[175,165],label:[100,180],title:'수요 감소 ←',headline:'가격 하락 & 거래량 감소',price:'하락',quantity:'감소',color:'slate',reason:'소득 감소, 대체재 가격 하락, 소비 인구 감소 등'},'supply-up':{line:[130,220,370,60],point:[225,165],label:[235,175],title:'공급 증가 →',headline:'가격 하락 & 거래량 증가',price:'하락',quantity:'증가',color:'green',reason:'생산 기술 발전, 원자재 가격 하락, 임금 하락 등'},'supply-down':{line:[30,220,270,60],point:[175,115],label:[100,110],title:'공급 감소 ←',headline:'가격 상승 & 거래량 감소',price:'상승',quantity:'감소',color:'slate',reason:'원자재 가격 상승, 정부 규제 강화, 세금 인상 등'}};
+function updateShiftGraph(type,btn){const d=shiftData[type],line=document.getElementById('shifted-line'),point=document.getElementById('new-e'),label=document.getElementById('shift-label');document.querySelectorAll('#shift-tabs .tab-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');[line,point,label].forEach(el=>el.classList.remove('graph-pulse'));line.setAttribute('x1',d.line[0]);line.setAttribute('y1',d.line[1]);line.setAttribute('x2',d.line[2]);line.setAttribute('y2',d.line[3]);line.setAttribute('stroke',d.color==='green'?'#10b981':'#f43f5e');point.setAttribute('cx',d.point[0]);point.setAttribute('cy',d.point[1]);label.setAttribute('x',d.label[0]);label.setAttribute('y',d.label[1]);label.setAttribute('fill',d.color==='green'?'#34d399':d.color==='rose'?'#fb7185':'#94a3b8');void line.offsetWidth;line.classList.add('graph-pulse');point.classList.add('graph-pulse');const accent=d.color==='green'?'#34d399':d.color==='rose'?'#fb7185':'#94a3b8';document.getElementById('shift-desc').innerHTML=`<div class="shift-card" style="background:rgba(59,130,246,.12);color:${accent};border:1px solid rgba(96,165,250,.2)">${d.title}</div><div class="shift-title">${d.headline}</div><div class="shift-row"><span>균형 가격 (P*)</span><strong style="color:${accent}">${d.price} ↑</strong></div><div class="shift-row"><span>균형 거래량 (Q*)</span><strong style="color:${accent}">${d.quantity}</strong></div><p class="text-xs text-slate-400" style="margin-top:.8rem"><b>주요 원인:</b> ${d.reason}</p>`;if(window.MathJax)window.MathJax.typesetPromise?.([document.getElementById('shift-desc')]);}
+function checkQuiz(button,isCorrect){const quiz=button.closest('.quiz');quiz.querySelectorAll('button').forEach(b=>{b.disabled=true;b.classList.remove('correct','wrong');});const feedback=quiz.querySelector('.quiz-feedback');if(isCorrect){button.classList.add('correct');feedback.textContent='✓ 정답입니다! 핵심 개념을 정확히 이해했습니다.';feedback.style.color='#34d399';}else{button.classList.add('wrong');feedback.textContent='✗ 오답입니다. 가격 변화는 곡선 위의 이동, 가격 외 요인은 곡선 자체의 이동입니다.';feedback.style.color='#fb7185';}}
+document.addEventListener('DOMContentLoaded',()=>{updateShiftGraph('demand-up',document.querySelector('#shift-tabs .tab-btn'));});
